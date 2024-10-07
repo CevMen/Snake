@@ -16,7 +16,7 @@ let snakeLength = 1;
 let food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
 
 // Game speed
-let gameSpeed = 100; // 100ms between moves
+let gameSpeed = 200; // 200ms between moves
 
 // Key press event listener
 document.addEventListener("keydown", changeDirection);
