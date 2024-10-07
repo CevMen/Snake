@@ -22,7 +22,7 @@ let score = 0;
 // Add to score
 function increaseScore() {
   score = score + 10;
-  scoreCount.innerText = `fruit: ${score}`
+  scoreCount.innerText = `Score: ${score}`
   console.log(score);
 }
 
@@ -130,7 +130,7 @@ function resetGame() {
     dy = 0;
     snakeLength = 1;
     score = 0;
-    scoreCount.innerText = `fruit: ${score}`
+    scoreCount.innerText = `Score: ${score}`
     food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
     gameSpeed = 200;
     setTimeout(gameLoop, gameSpeed);
