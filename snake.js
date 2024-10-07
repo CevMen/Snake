@@ -15,6 +15,17 @@ let snakeLength = 1;
 // Food properties
 let food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
 
+//  track score
+const scoreCount = document.getElementById("div-body");
+let score = 0;
+
+// Add to score
+function increaseScore() {
+  score = score + 10;
+  scoreCount.innerText = `fruit: ${score}`
+  console.log(score);
+}
+
 // Game speed
 let gameSpeed = 200; // 200ms between moves
 
@@ -29,6 +40,14 @@ function addSpeed() {
     gameSpeed -= 5;
   }
 }
+
+// Key press event listener
+document.addEventListener("keydown", changeDirection);
+
+// Key press event listener
+document.addEventListener("keydown", changeDirection);
+
+
 
 // Game loop
 function gameLoop() {
@@ -59,6 +78,7 @@ function gameLoop() {
         snakeLength++;
         addSpeed();
         food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+        increaseScore();
     }
 
     // Remove extra segments of the snake
@@ -109,6 +129,8 @@ function resetGame() {
     dx = 1;
     dy = 0;
     snakeLength = 1;
+    score = 0;
+    scoreCount.innerText = `fruit: ${score}`
     food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
     gameSpeed = 200;
     setTimeout(gameLoop, gameSpeed);
@@ -116,3 +138,4 @@ function resetGame() {
 
 // Start the game loop
 gameLoop();
+console.log(scoreCount)

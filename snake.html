@@ -7,14 +7,61 @@
     <style>
         canvas {
             border: 1px solid black;
-            display: block;
-            margin: 0 auto;
+            display: inline-block;
+            position: relative;
+            margin: 0 50px;
+        }
+
+        #div-main {
+            
+            border: 1px solid black;
+            display: inline-block;
+            position: relative;
+            margin: 0 50px;
+            width: 200px;
+            height: 400px;
+        }
+
+        #div-head {
+          display: block;
+          box-sizing: border-box;
+          height: 100px;
+          width: 200px;
+          font-size: 2.2rem;
+          text-align: center;
+          padding-top: 20px;
+        }
+
+        #div-body {
+          display: block;
+          height: 300px;
+          box-sizing: border-box;
+          width: 200px;
+          font-size: 1.5rem;
+          text-align: center;
+          padding-top: 20px;
         }
     </style>
 </head>
+
 <body>
+
+    <div id="div-main">
+
+      <div id="div-head">Game Score</div>
+      <div id="div-body">Fruit: <span id="fruit-found"></span></div>
+
+    </div>
+
     <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <nav id="navigation-guide" width="200" height="400"></nav>
+
+    <div id="div-main">
+
+      <div id="div-head">Controls</div>
+      <div id="div-body">Use arrow keys to move.</div>
+
+    </div>
+
     <script src="snake.js"></script>
 </body>
 </html>
