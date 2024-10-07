@@ -21,6 +21,15 @@ let gameSpeed = 200; // 200ms between moves
 // Key press event listener
 document.addEventListener("keydown", changeDirection);
 
+// Speed up when snake eats fruit
+function addSpeed() {
+  if (gameSpeed === 40) {
+    return
+  } else {
+    gameSpeed -= 5;
+  }
+}
+
 // Game loop
 function gameLoop() {
     // Move the snake
@@ -48,7 +57,7 @@ function gameLoop() {
     // Check if snake eats the food
     if (head.x === food.x && head.y === food.y) {
         snakeLength++;
-        gameSpeed -= 5;;
+        addSpeed();
         food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
     }
 
