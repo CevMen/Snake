@@ -48,6 +48,7 @@ function gameLoop() {
     // Check if snake eats the food
     if (head.x === food.x && head.y === food.y) {
         snakeLength++;
+        gameSpeed -= 5;;
         food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
     }
 
@@ -100,6 +101,7 @@ function resetGame() {
     dy = 0;
     snakeLength = 1;
     food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+    gameSpeed = 200;
     setTimeout(gameLoop, gameSpeed);
 }
 
