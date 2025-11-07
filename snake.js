@@ -3,7 +3,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 // Set the size of the grid
-const gridSize = 40;
+const gridSize = 60;
 const tileCount = canvas.width / gridSize;
 let gameOff = true;
 
@@ -32,7 +32,7 @@ let gameSpeed = 200; // 200ms between moves
 
 // Speed up when snake eats fruit
 function addSpeed() {
-  if (gameSpeed === 120) {
+  if (gameSpeed === 180) {
     return
   } else {
     gameSpeed -= 5;
@@ -106,6 +106,11 @@ function gameLoop() {
         snakeLength++;
         addSpeed();
         food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+        for (let i = 0; i < snake.length; i++) {
+            if (snake[i].x === food.x && snake[i].y === food.y) {
+                food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+            }
+        }
         increaseScore();
     }
 
