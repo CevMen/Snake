@@ -32,9 +32,7 @@ let gameSpeed = 200; // 200ms between moves
 
 // Speed up when snake eats fruit
 function addSpeed() {
-  if (gameSpeed === 180) {
-    return
-  } else {
+  if (gameSpeed >= 180) {
     gameSpeed -= 5;
   }
 }
@@ -73,12 +71,13 @@ function changeDirection(event) {
     }
 }
 
+document.addEventListener("keydown", changeDirection);
+
 // Game loop
 function gameLoop() {
 
     if (gameOff) {gameOff = false;}
 
-    document.addEventListener("keydown", changeDirection);
     // Move the snake
     let head = { x: snake[0].x + dx, y: snake[0].y + dy };
 
@@ -91,7 +90,7 @@ function gameLoop() {
 
     // Check for collision with self
     for (let i = 0; i < snake.length; i++) {
-        if (snake[i].x === head.x && snake[i].y === head.y && dx !== 0 && dy !== 0) {
+        if ((snake[i].x === head.x && snake[i].y === head.y) && (dx !== 0 || dy !== 0)) {
             alert("Game Over! You collided with yourself.");
             resetGame();
             return;
@@ -107,7 +106,7 @@ function gameLoop() {
         addSpeed();
         food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
         for (let i = 0; i < snake.length; i++) {
-            if (snake[i].x === food.x && snake[i].y === food.y) {
+            if ((head.x === food.x || snake[i].x === food.x) && (head.y === food.y || snake[i].y === food.y)) {
                 food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
             }
         }
