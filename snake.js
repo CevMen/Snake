@@ -73,7 +73,6 @@ function changeDirection(event) {
     }
 }
 
-
 // Game loop
 function gameLoop() {
 
