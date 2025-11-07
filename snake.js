@@ -22,9 +22,9 @@ let score = 0;
 
 // Add to score
 function increaseScore() {
-  score = score + 10;
-  scoreCount.innerText = `Score: ${score}`
-  console.log(score);
+    score = score + 10;
+    scoreCount.innerText = `Score: ${score}`
+    console.log(score);
 }
 
 // Game speed
@@ -32,9 +32,9 @@ let gameSpeed = 200; // 200ms between moves
 
 // Speed up when snake eats fruit
 function addSpeed() {
-  if (gameSpeed >= 180) {
-    gameSpeed -= 5;
-  }
+    if (gameSpeed >= 180) {
+        gameSpeed -= 5;
+    }
 }
 
 // Reset the game when it's over
@@ -76,7 +76,7 @@ document.addEventListener("keydown", changeDirection);
 // Game loop
 function gameLoop() {
 
-    if (gameOff) {gameOff = false;}
+    if (gameOff) { gameOff = false; }
 
     // Move the snake
     let head = { x: snake[0].x + dx, y: snake[0].y + dy };
@@ -136,5 +136,5 @@ function gameLoop() {
 }
 
 // Start the game loop
-if (gameOff) {document.addEventListener("keydown", gameLoop())};
+if (gameOff) { document.addEventListener("keydown", gameLoop()) };
 console.log(scoreCount)
